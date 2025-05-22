@@ -1,0 +1,27 @@
+﻿@model Part1update_cloud.Models.Event
+
+@{
+    ViewData["Title"] = "Event Details";
+}
+
+<h2>Event Details</h2>
+
+<div>
+    <h4>@Model.EventName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Date</dt>
+        <dd class="col-sm-10">@Model.EventDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+
+        <dt class="col-sm-2">Venue ID</dt>
+        <dd class="col-sm-10">@Model.VenueId</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EventId" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

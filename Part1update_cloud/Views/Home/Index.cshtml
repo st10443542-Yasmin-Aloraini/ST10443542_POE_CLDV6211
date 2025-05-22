@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Main Header Section -->
+<div class="text-center bg-dark text-white py-5">
+    <h1 class="display-4 font-weight-bold">Welcome to EventEase</h1>
+    <p class="lead">Your One-Stop Solution to Manage Venues, Events, and Bookings</p>
+</div>
+
+<!-- Main Content Section with Centered Buttons -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <!-- Button Container with Border -->
+        <div class="col-md-8">
+            <div class="border border-light p-5 rounded-lg shadow-lg bg-secondary">
+                <div class="row text-center">
+                    <!-- Search Button -->
+                    <div class="col-12 mb-4">
+                        <a asp-action="Search" class="btn btn-lg btn-outline-info btn-block shadow rounded-pill py-3 hover-btn">Search Bookings</a>
+                    </div>
+
+                    <!-- Manage Venues Button -->
+                    <div class="col-12 mb-4">
+                        <a asp-controller="Venue" asp-action="Index" class="btn btn-lg btn-outline-info btn-block shadow rounded-pill py-3 hover-btn">Manage Venues</a>
+                    </div>
+
+                    <!-- Manage Events Button -->
+                    <div class="col-12 mb-4">
+                        <a asp-controller="Event" asp-action="Index" class="btn btn-lg btn-outline-info btn-block shadow rounded-pill py-3 hover-btn">Manage Events</a>
+                    </div>
+
+                    <!-- Manage Bookings Button -->
+                    <div class="col-12 mb-4">
+                        <a asp-controller="Booking" asp-action="Index" class="btn btn-lg btn-outline-info btn-block shadow rounded-pill py-3 hover-btn">Manage Bookings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<div class="container text-center mt-5">
+    <hr class="my-4" />
+    <p class="text-muted">© 2025 EventEase. All Rights Reserved. | Built with Love and Bootstrap.</p>
+</div>
+
+<!-- Custom Styles for Button Hover Effects -->
+<style>
+    .btn-outline-info {
+        border-color: #00b5e2; /* Sky Blue Border */
+        color: #00b5e2; /* Sky Blue Text */
+    }
+
+        .btn-outline-info:hover {
+            background-color: #00b5e2; /* Sky Blue Background on Hover */
+            color: white; /* White Text on Hover */
+            border-color: #00b5e2; /* Sky Blue Border on Hover */
+        }
+
+    .hover-btn {
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth Hover Effect */
+    }
+</style>

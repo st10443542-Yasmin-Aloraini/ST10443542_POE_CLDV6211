@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Part1update_cloud.Models.Venue>
+
+@{
+    ViewData["Title"] = "Venues";
+}
+
+<h2>Venues</h2>
+
+
+<!-- Venue Table -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.VenueName)</th>
+            <th>@Html.DisplayNameFor(model => model.Location)</th>
+            <th>@Html.DisplayNameFor(model => model.Capacity)</th>
+            <th>Image</th>
+            <th>Actions</th> <!-- Added Actions column -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.VenueName</td>
+                <td>@item.Location</td>
+                <td>@item.Capacity</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="Venue Image" width="100" height="100" />
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.VenueId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.VenueId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VenueId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Button to Create New Venue -->
+<a asp-action="Create" class="btn btn-primary">Create New Venue</a>
+
