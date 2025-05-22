@@ -1,0 +1,42 @@
+﻿@model Part1update_cloud.Models.Venue
+
+@{
+    ViewData["Title"] = "Venue Details";
+}
+
+<h1>Venue Details</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Venue Name</th>
+        <td>@Model.VenueName</td>
+    </tr>
+    <tr>
+        <th>Location</th>
+        <td>@Model.Location</td>
+    </tr>
+    <tr>
+        <th>Capacity</th>
+        <td>@Model.Capacity</td>
+    </tr>
+    <tr>
+        <th>Image</th>
+        <td>
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" alt="Venue Image" width="200" height="200" class="img-thumbnail" />
+            }
+            else
+            {
+                <span>No Image</span>
+            }
+        </td>
+    </tr>
+  
+</table>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VenueId" class="btn btn-primary">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+

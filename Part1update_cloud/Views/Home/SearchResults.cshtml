@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Part1update_cloud.Models.Booking>
+@{
+    ViewData["Title"] = "Search Results";
+}
+
+<h2>Search Results</h2>
+
+<form method="get" asp-action="Search">
+    <input type="text" name="query" placeholder="Enter Booking ID or Event Name" class="form-control" />
+    <br />
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <p class="text-warning">@ViewBag.Message</p>
+}
+else if (!Model.Any())
+{
+    <p class="text-danger">No bookings found.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Event ID</th>
+                <th>Venue ID</th>
+                <th>Booking Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.BookingId</td>
+                    <td>@booking.EventId</td>
+                    <td>@booking.VenueId</td>
+                    <td>@booking.BookingDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
